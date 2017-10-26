@@ -1,0 +1,26 @@
+{
+  "name": "generic-modal",
+  "version": "0.1.0",
+  "description": "a flexible, generic modal service",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt dist"
+  },
+  "author": "One Acre Fund <devs@oneacrefund.org>",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "modal",
+    "module"
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^1.8.9",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "angular-ui-bootstrap": "^2.5.6"
+  }
+}
