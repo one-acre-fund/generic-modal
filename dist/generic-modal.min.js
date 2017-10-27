@@ -1,5 +1,5 @@
 /**
- * a flexible, generic modal service
+ * A flexible, generic modal service
  * @version v0.1.0
  * @link 
  * @author One Acre Fund <devs@oneacrefund.org>

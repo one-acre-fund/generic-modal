@@ -32,11 +32,11 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('styles', function () {
-    gulp.src('src/genericModal/modal.scss')
+    gulp.src('src/genericModal/genericModal.scss')
         .pipe(sass())
         .pipe(gulp.dest('./dist/'))
         .pipe(cssmin())
-        .pipe(rename('modal.min.css'))
+        .pipe(rename('generic-modal.min.css'))
     .pipe(gulp.dest("./dist"));;
 });
 
