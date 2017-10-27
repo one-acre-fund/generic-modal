@@ -81,8 +81,6 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	        options.icon = 'check-circle';
 	        options.iconClasses = 'text-success';
 	    }
-	    console.log(options.icon);
-	    console.log(options.iconClasses);
 
 	    options.__isHtmlFile = body.endsWith('.html') || body.endsWith('.cshtml');
 

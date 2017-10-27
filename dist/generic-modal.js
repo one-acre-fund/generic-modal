@@ -1,5 +1,5 @@
 /**
- * A flexible, generic modal service
+ * a flexible, generic modal service
  * @version v0.1.0
  * @link 
  * @author One Acre Fund <devs@oneacrefund.org>
@@ -91,8 +91,6 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	        options.icon = 'check-circle';
 	        options.iconClasses = 'text-success';
 	    }
-	    console.log(options.icon);
-	    console.log(options.iconClasses);
 
 	    options.__isHtmlFile = body.endsWith('.html') || body.endsWith('.cshtml');
 

@@ -39,6 +39,23 @@
 				subtract: function() { $scope.value --; },
 			});
 		};
+
+		$scope.openUsingPromise = function() {
+			genericModal.asyncOpen('Open using promises', 'This example shows a modal using promises instead of callbacks.', {
+				showCancel: true,
+			})
+			.then(function(err) {
+				if (err) {
+					return console.error(err);
+				}
+				alert('You pressed continue');
+			}, function(err) {
+				if (err) {
+					return console.error(err);
+				}
+				alert('You pressed cancel')
+			});
+		};
 	}
 
 })(angular);
