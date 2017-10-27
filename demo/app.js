@@ -30,9 +30,13 @@
 			});
 		};
 
-		$scope.openWithTemplate = function() {
-			genericModal.open('Open with template', './template-example.html', {
+		$scope.value = 0;
 
+		$scope.openWithTemplate = function() {
+			genericModal.open('Open with template', './demo/template-example.html', {
+				value: function() { return $scope.value },
+				add: function() { $scope.value ++; },
+				subtract: function() { $scope.value --; },
 			});
 		};
 	}

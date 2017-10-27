@@ -5,7 +5,6 @@ angular.module('ngGenericModal', ['ui.bootstrap'])
 	.run(['$templateCache', function($templateCache) {
 		$templateCache.put('modal.html',
 		    "<div class='modal-header modal-border'>" +
-		        "<p ng-if='instance.options.userName'><i class='fa fa-user'> {{instance.options.userName}}</i></p>" +
 		        "<h3 class='modal-title' id='modal-title'>" +
 		            "<span ng-if='instance.options.icon'><i class='fa fa-{{instance.options.icon}} {{instance.options.iconClasses}}'></i> </span>" +
 		            "{{instance.modalTitle}}" +
@@ -58,7 +57,6 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	    var defaultOptions = {
 	        showContinue: true,				// show the continue button?
 	        showCancel: false,				// show the cancel button?
-	        userName: undefined,			// show the user's name abve the header? (string)
 	        cancellableBackdrop: true,		// allow the modal to be closed by clicking the backdrop?
 	        continueButton: 'OK',			// text to show in the continue button
 	        cancelButton: 'Cancel',			// text to show in the cancel button
@@ -83,6 +81,8 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	        options.icon = 'check-circle';
 	        options.iconClasses = 'text-success';
 	    }
+	    console.log(options.icon);
+	    console.log(options.iconClasses);
 
 	    options.__isHtmlFile = body.endsWith('.html') || body.endsWith('.cshtml');
 

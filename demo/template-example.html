@@ -1,9 +1,12 @@
 <div class="row">
-	<p>Test for the best</p>
-	<div class="col-md-6">
-		Left column
+	<div class="col-md-12">
+		<p>This is an example of a modal that uses an HTML template as its body. You can access the Angular controller via `instance.options`. For an example of this, press the buttons below.</p>
 	</div>
 	<div class="col-md-6">
-		Right column
+		<button class="btn" type="button" ng-click="instance.options.add()">Add</button>
+		<button class="btn" type="button" ng-click="instance.options.subtract()">Subtract</button>
+	</div>
+	<div class="col-md-6">
+		{{instance.options.value()}}
 	</div>
 </div>
