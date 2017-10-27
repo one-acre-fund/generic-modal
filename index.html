@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="One Acre Fund's Generic Modal">
 		<meta name="author" content="One Acre Fund">
 
-		<title>One Acre Fund Generic Modal</title>
+		<title>Generic Angular Bootstrap Modal</title>
 
+		<!-- Styles -->
+		<!-- Dependencies -->
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
+		<!-- Modal -->
+		<link href="./dist/modal.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Scripts -->
+		<!-- Dependencies -->
 		<script
 			  src="http://code.jquery.com/jquery-3.2.1.min.js"
 			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -18,16 +26,32 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 		<script src="./node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
 		<script src="./node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 
+		<!-- Modal -->
 		<script src="./dist/generic-modal.js"></script>
 		<script src="./demo/app.js"></script>
+
 	</head>
 	<body ng-app="myApp">
 		<div ng-controller="MainController">
-			
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Generic Angular Bootstrap Modal</h1>
+						<p>This is a package that extends the <a href="https://angular-ui.github.io/bootstrap/">UI Bootstrap</a> modal. It configures the modal in a stylistically consistent way, while aiming to allow a high degree of flexibility.</p>
+					</div>
+				</div>
+				<div class="row form-group"></div>
+				<div class="row">
+					<div class="col-md-12">
+						<button class="btn" type="button" ng-click="defaultOpen()">Default open</button>
+						<button class="btn" type="button" ng-click="openWithOptions()">Open with options</button>
+						<button class="btn" type="button" ng-click="openWithTemplate()">Open with HTML template</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

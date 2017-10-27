@@ -8,11 +8,13 @@ var banner = '/**\n' +
 	' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
 	' */\n\n';
 
-var gulp = require('gulp'),
+var gulp   = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
-	header = require('gulp-header');
+	header = require('gulp-header'),
+	sass   = require('gulp-sass'),
+	cssmin = require('gulp-cssmin');
 
 gulp.task('scripts', function() {
 	gulp.src([
@@ -29,8 +31,18 @@ gulp.task('scripts', function() {
 	.pipe(gulp.dest('./dist'))
 });
 
-gulp.task('default', ['scripts']);
+gulp.task('styles', function () {
+    gulp.src('src/genericModal/modal.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('./dist/'))
+        .pipe(cssmin())
+        .pipe(rename('modal.min.css'))
+    .pipe(gulp.dest("./dist"));;
+});
+
+gulp.task('default', ['scripts', 'styles']);
 
 gulp.task('watch', function() {
 	gulp.watch('src/genericModal/*.js', ['scripts']);
+	gulp.watch('src/genericModal/*.scss', ['styles']);
 });

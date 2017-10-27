@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+// Colors
+$c-primary: #167c66;
+$c-primary-dark: #0e4a3d;
+$c-secondary: #fcb040;
+$c-secondary-dark: #c26542;
+$c-accent: #fcb040;
+
+// Shades
+$c-black: #000;
+$c-grey: #767676;
+$c-white: #fff;
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: $c-white;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid $c-primary-dark;
+    width: 80%;
+    border-radius: 0;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgb(195, 218, 213);
+    padding: 12px 0;
+    color: $c-primary-dark;
+    font-style: italic;
+}
+
+.modal-body {
+    padding: 12px 0;
+    color: $c-grey;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 12px 0 0 0;
+}
+
+.btn-modal {
+    background-color: $c-primary-dark;
+    color: $c-white;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+    &:hover {
+        color: $c-secondary;
+    }
+    &:active, &:focus {
+        color: $c-grey;
+    }
+}
+
+/* The Modal Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

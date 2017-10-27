@@ -14,7 +14,6 @@ angular.module('ngGenericModal', ['ui.bootstrap'])
 	.factory('genericModal', ['$uibModal', '$q', '$templateCache', GenericModalFactory])
 	.run(['$templateCache', function($templateCache) {
 		$templateCache.put('modal.html',
-			// "<div></div>"
 		    "<div class='modal-header modal-border'>" +
 		        "<p ng-if='instance.options.userName'><i class='fa fa-user'> {{instance.options.userName}}</i></p>" +
 		        "<h3 class='modal-title' id='modal-title'>" +
@@ -26,7 +25,7 @@ angular.module('ngGenericModal', ['ui.bootstrap'])
 		        "<div ng-if='!instance.options.htmlBody && !instance.options.__isHtmlFile'>" +
 		            "{{instance.modalBody}}" +
 		        "</div>" +
-		        "<ng-bind-html ng-if='instance.options.htmlBody && !instance.options.__isHtmlFile' ng-bind-html='instance.modalBody'></ng-bind-html>" +
+		        "<ng-bind-html ng-if='instance.options.htmlBody && !instance.options.__isHtmlFile' ng-bind-html='instance.modalBody | to_trusted'></ng-bind-html>" +
 		        "<ng-include ng-if='instance.options.__isHtmlFile' src='instance.modalBody'></ng-include>" +
 		    "</div>" +
 		    "<div class='modal-footer'>" +
@@ -35,7 +34,11 @@ angular.module('ngGenericModal', ['ui.bootstrap'])
 		    "</div>"
 		);
 	}])
-	;
+	.filter('to_trusted', ['$sce', function($sce){
+        return function(text) {
+            return $sce.trustAsHtml(text);
+        };
+    }]);
 
 function GenericModalController($scope, $uibModalInstance, $uibModalStack) {
 
@@ -57,17 +60,6 @@ function GenericModalController($scope, $uibModalInstance, $uibModalStack) {
 function GenericModalFactory($uibModal, $q, $templateCache) {
 
 	var tpl = $templateCache.get('modal.html');
-
-	function openModal(title, body, showContinue, showCancel, cancellableBackdrop) {
-
-	    var options = {
-	        showContinue : showContinue,
-	        showCancel: showCancel,
-            cancellableBackdrop : cancellableBackdrop
-	    }
-
-	    open(title,body,options);
-	}
 	
 	function open(title, body, options) {
 
@@ -104,8 +96,6 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 
 	    options.__isHtmlFile = body.endsWith('.html') || body.endsWith('.cshtml');
 
-	    console.log(tpl);
-
 	    var modalInstance = $uibModal.open({
 	        animation: true,
 	        ariaLabelledBy: 'modal-title',
@@ -115,8 +105,6 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	        controllerAs: 'modal',
 	        backdrop: options.cancellableBackdrop ? true : 'static',
 	    });
-
-	    console.log(modalInstance);
 
 	    modalInstance.modalTitle = title;
 	    modalInstance.modalBody = body;
@@ -137,7 +125,6 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	};
 
 	return {
-	    openModal: openModal,
 	    open: open,
         asyncOpen : asyncOpen
 	};
