@@ -1,6 +1,6 @@
 /**
  * A flexible, generic modal service
- * @version v0.1.3
+ * @version v0.1.4
  * @link 
  * @author One Acre Fund <devs@oneacrefund.org>
  * @license MIT License, http://www.opensource.org/licenses/MIT

@@ -43,7 +43,7 @@
 		};
 
 		$scope.openUsingPromise = function() {
-			genericModal.asyncOpen('Open using promises', 'This example shows a modal using promises instead of callbacks.', {
+			genericModal.openPromise('Open using promises', 'This example shows a modal using promises instead of callbacks.', {
 				showCancel: true,
 			})
 			.then(function(err) {
