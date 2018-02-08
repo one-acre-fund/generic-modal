@@ -48,6 +48,7 @@ To build the package from source (for e.g. development), follow the following co
 $ git clone https://github.com/one-acre-fund/generic-modal.git
 $ cd generic-modal
 $ npm i
+$ npm i -g gulp # if you haven't installed gulp yet
 $ gulp
 ```
 

@@ -15,11 +15,13 @@
 			genericModal.open('Open with options',
 					'<p>This is an example of a modal that was opened with some options specified.</p><ul>' 
 					+ '<li>The body text is rendered as HTML</li>'
+					+ '<li>The modal size is set to large (`lg`)</li>'
 					+ '<li>The "cancel" button is turned on</li>'
 					+ '<li>The backdrop is made uncancellable</li>'
 					+ '<li>The success icon is shown</li>'
 					+ '<li>Callbacks are defined for the continue and cancel buttons</li></ul>', {
 				htmlBody: true,
+				size: 'lg',
 				showCancel: true,
 				continueButton: 'OK (with callback)',
 				cancelButton: 'Cancel (with callback)',

@@ -1,6 +1,6 @@
 /**
- * a flexible, generic modal service
- * @version v0.1.0
+ * A flexible, generic modal service
+ * @version v0.1.3
  * @link 
  * @author One Acre Fund <devs@oneacrefund.org>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -73,6 +73,7 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	        continueClasses: '',			// additional html classes to add to the continue button
 	        cancelClasses: '',				// additional html classes to add to the cancel button
 	        htmlBody: false,				// if true, renders the 'body' text as html
+	        size: 'md',						// sets the modal width (`sm`, `md`, or `lg`)
 	        errorIcon: false,				// if true, displays an error icon in the header
 	        successIcon: false,				// if true, displays a success icon in the header
 	        icon: undefined,				// displays an icon in the header (overriden if errorIcon or successIcon = true)
@@ -101,6 +102,7 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	        template: $templateCache.get('modal.html'),
 	        controller: 'genericModalController',
 	        controllerAs: 'modal',
+	        size: options.size,
 	        backdrop: options.cancellableBackdrop ? true : 'static',
 	    });
 
@@ -109,7 +111,13 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	    modalInstance.options = options;
 	};
 
+	// TODO: Deprecate for next release
 	function asyncOpen(title, body, options) {
+		console.warn('WARNING: The `asyncOpen` function is being deprecated. Please update the code to use the new `openPromise` function. The parameters and behaviour remains the same.');
+		return openPromise(title, body, options);
+	};
+
+	function openPromise(title, body, options) {
 	    options = options || {};
 	    var deferred = $q.defer();
 	    options.continueCallback = function() {
@@ -124,7 +132,8 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 
 	return {
 	    open: open,
-        asyncOpen : asyncOpen
+        openPromise: openPromise,
+        asyncOpen: asyncOpen, // TODO: Deprecate for next release
 	};
 }
 })(angular);
