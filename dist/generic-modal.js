@@ -1,6 +1,6 @@
 /**
  * A flexible, generic modal service
- * @version v0.1.4
+ * @version v0.1.5
  * @link 
  * @author One Acre Fund <devs@oneacrefund.org>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -111,12 +111,6 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	    modalInstance.options = options;
 	};
 
-	// TODO: Deprecate for next release
-	function asyncOpen(title, body, options) {
-		console.warn('WARNING: The `asyncOpen` function is being deprecated. Please update the code to use the new `openPromise` function. The parameters and behaviour remains the same.');
-		return openPromise(title, body, options);
-	};
-
 	function openPromise(title, body, options) {
 	    options = options || {};
 	    var deferred = $q.defer();
@@ -133,7 +127,6 @@ function GenericModalFactory($uibModal, $q, $templateCache) {
 	return {
 	    open: open,
         openPromise: openPromise,
-        asyncOpen: asyncOpen, // TODO: Deprecate for next release
 	};
 }
 })(angular);
